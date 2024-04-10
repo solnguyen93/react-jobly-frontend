@@ -1,4 +1,8 @@
-const { override, fallback } = require('customize-cra');
-const cryptoFallback = fallback({ crypto: require.resolve('crypto-browserify') });
+const { override, addWebpackAlias } = require('customize-cra');
+const path = require('path');
 
-module.exports = override(cryptoFallback);
+module.exports = override(
+    addWebpackAlias({
+        crypto: 'crypto-browserify',
+    })
+);
